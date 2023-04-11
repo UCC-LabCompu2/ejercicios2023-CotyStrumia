@@ -20,44 +20,45 @@
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
 <form id="Formulario de Suscripción">
     <p>
-        Nombre: <input type="text" name="Nombre" placeholder="Nombre">
+        <label for="Nombre">Nombre: <input type="text" name="Nombre" placeholder="Nombre" id="Nombre"></label>
     </p>
     <p>
-        Apellido: <input type="text" name="Apellido" placeholder="Apellido">
+        <label for="apellido">Apellido: <input type="text" name="Apellido" placeholder="Apellido" id="apellido"></label>
     </p>
     <p>
         Sexo:
         <br>
-        Masculino <input type="radio" name="Sexo" value="Masculino">
+        <label for="masculino">Masculino <input type="radio" name="Sexo" value="Masculino" id="masculino"></label>
         </br>
         <br>
-        Femenino <input type="radio" name="Sexo" value="Femenino">
+        <label for="femenino">Femenino <input type="radio" name="Sexo" value="Femenino" id="femenino"></label>
         </br>
     </p>
     <p>
-        Edad: <input type="number" name="Edad" placeholder="Edad">
+        <label for="edad">Edad: <input type="number" name="Edad" placeholder="Edad" id="edad"></label>
     </p>
     <p>
-        Email: <input type="email" name="Email" placeholder="email@dominio.com">
+        <label for="email">Email: <input type="email" name="Email" placeholder="email@dominio.com" id="email"></label>
     </p>
     <p>
-        Usuario: <input type="text" name="Usuario" placeholder="Usuario">
+        <label for="usuario">Usuario: <input type="text" name="Usuario" placeholder="Usuario" id="usuario"></label>
     </p>
     <p>
-        Password: <input type="text" name="Pass" placeholder="Contraseña">
+        <label for="password">Password: <input type="text" name="Pass" placeholder="Contraseña" id="password"></label>
     </p>
     <p>
-        Confirmar Password: <input type="text" name="Conf pass" placeholder="Repetir contraseña">
+        <label for="conf_password"> Confirmar Password: <input type="text" name="Conf pass" placeholder="Repetir contraseña" id="conf_password"></label>
     </p>
     <p>
-        Tipo de servicio: Free <input type="checkbox" name="Tipo de servicio" value="Free"> /
-        Standard <input type="checkbox" name="Tipo de servicio" value="Standard"> /
-        Premium <input type="checkbox" name="Tipo de servicio" value="Premium">
+        Tipo de servicio:
+        <label for="free">Free <input type="checkbox" name="Tipo de servicio" value="Free" id="free"></label> /
+        <label for="standard">Standard <input type="checkbox" name="Tipo de servicio" value="Standard" id="standard"></label> /
+        <label for="premium">Premium <input type="checkbox" name="Tipo de servicio" value="Premium" id="premium"></label>
     </p>
     <p>
         Tema:
-        <select>
-            <option>Política</option>
+       <select name="tipo_de_servicio">
+           <option>Política</option>
             <option>Negocios</option>
             <option>Tecnología</option>
             <option>Salud</option>
