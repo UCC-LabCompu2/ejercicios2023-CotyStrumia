@@ -1,0 +1,24 @@
+div {
+    border: 2px solid #222222;
+    margin: 30px 40px;
+    padding: 15px;
+    background-color: rgba(21, 12, 130, 0.5);
+    border-radius: 10px;
+    box-shadow: 10px 5px #7c7b7b;
+}
+#usuario{
+    float: left;
+    width: 145px;
+    border-radius: 50%;
+}
+body{
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    background: linear-gradient(to right, #accfdc, #005372);
+}
+h1,h2,h3{
+    text-shadow: 2px 3px #999999;
+}
+.nombre{
+    font-weight: bold;
+}
