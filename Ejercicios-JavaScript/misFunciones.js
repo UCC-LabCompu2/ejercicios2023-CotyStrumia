@@ -192,3 +192,148 @@ let cargarLS = () =>{
     document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
 
+let dibujarCirculoCuadrado = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let xMax = canvas.width;
+    let yMax = canvas.height;
+    ctx.fillStyle = "#333";
+    //Dibujar rectangulo
+    let margen = 15;
+    ctx.fillRect(0+margen, yMax-120-margen, 130, 120);
+
+    //Dibujar circulo
+    ctx.arc(xMax/2, yMax/2, 100, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+}
+
+let limpiarCanvas = () => {
+    let canvas = document.getElementById("myCanvas");
+    canvas.width = canvas.width;
+}
+
+
+var bandera;
+let dibujar = (event) => {
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+
+    let posX = event.clientX;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function (){bandera=true};
+    canvas.onmouseup = function (){bandera=false};
+
+    if(bandera){
+        ctx.fillRect(posX, posY, 5, 5);
+        ctx.fill;
+    }
+}
+
+let dibujarCuadriculado=()=>{
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const anchoMax=canvas.width;
+    const alturaMax=canvas.height;
+    const paso= 20;
+    let ejeX = -24;
+    let ejeY=-14;
+    //lineas verticales
+    for(let i =paso; i<anchoMax; i+=paso) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, alturaMax);
+        ctx.strokeStyle = "#838383";
+        ctx.stroke();
+        ctx.font="15px Arial";
+        ctx.fillStyle="#333";
+        ctx.fillText(ejeX, i, alturaMax/2);
+        ejeX++;
+        ctx.closePath();
+
+    }
+    for(let i =paso; i<alturaMax; i+=paso) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeStyle = "#838383";
+        ctx.stroke();
+        ctx.font="15px Arial";
+        ctx.fillStyle="#333";
+        ctx.fillText(ejeY, anchoMax/2, i);
+        ejeY++;
+        ctx.closePath();
+    }
+   //eje x
+        ctx.beginPath();
+        ctx.moveTo(0, alturaMax/2);
+        ctx.lineTo(anchoMax, alturaMax/2);
+        ctx.strokeStyle = "#b20707";
+        ctx.stroke();
+        ctx.closePath();
+
+        //eje y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo((anchoMax/2), alturaMax);
+    ctx.strokeStyle = "#b20707";
+    ctx.stroke();
+    ctx.closePath();
+}
+
+let dibujarImagen = (posX, posY)=>{
+    const canvas=document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const anchoMax=canvas.width;
+    const alturaMax=canvas.height;
+
+    canvas.width=canvas.width;
+
+    console.log (posX, posY);
+    let img=new Image();
+    img.src= "images/auto.png";
+    if(posX<0||posY<0 || posX>=anchoMax || posY>=alturaMax){
+        openDialog();
+    }else {
+        img.onload = function () {
+            ctx.drawImage(img, posX, posY);
+        }
+    }
+}
+
+let cerrarDialog=()=> {
+    const dialog =document.getElementById("myDialog");
+    dialog.close();
+}
+
+let openDialog=()=>{
+    const dialog =document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    var x = 0;
+    var dx = 2;
+
+    let img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+    x += dx;
+    console.log("La coordenada X es: " +x);
+    if(x>canvas.width){ //reseteando la variable, no toma valores tan grandes
+        x = 0;
+    }
+
+
+}
